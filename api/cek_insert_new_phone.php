@@ -23,7 +23,9 @@ if(!is_numeric($phone)){
         $pin_token = mt_rand(100000,999999);
         $sqls = "INSERT INTO user_token (selector,token,pin_token,action,id_user,created,expires) VALUES ('".$selector."','".$token."','".$pin_token."','phonechange','".$id."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s', strtotime('+1 hour'))."')";
         
-        $insert_token_sms = mysqli_query($conn, $sqls);
+        //$insert_token_sms = mysqli_query($conn, $sqls);
+        
+		$insert_token_sms = mysqli_query($conn, $sqls);
         
         send_sms($phone, $pin_token);
     }
@@ -48,5 +50,7 @@ function send_sms($phone, $otp){
 	
 	curl_close($curl);
 }
+
+// dan ini juga ditambahkan di cek insert nya
 
 echo json_encode($data);

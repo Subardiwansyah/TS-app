@@ -18,6 +18,7 @@ $data['data'] = $id_wty_claim;
         $data['mssg'] = "Cannot cancel this claim.";
     }
     
+	// Ini adalah komentar yang ditambahkan untuk melihat perubahan
     
 
     
